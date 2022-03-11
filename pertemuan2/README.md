@@ -14,7 +14,7 @@ Aplikasi ini dibuat untuk memudahkan para konsumen dalam berbelanja sehingga tid
 - Alamat Pelanggan 
 - No.HP
 ### Barang
-- Kode barang
+- ID barang
 - Nama barang 
 - Harga barang
 - Foto Barang
