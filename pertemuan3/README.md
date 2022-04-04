@@ -1,5 +1,6 @@
 # Ide Solusi: Sistem Grosir Online
 
+![Model](https://github.com/andamira16/IF214002/blob/main/pertemuan3/Screenshot(13).jpeg?raw=true)
 
 ## Deskripsi
 Aplikasi ini dibuat untuk memudahkan para konsumen dalam berbelanja sehingga tidak lagi harus berdesakan dan berkerumun. Aplikasi ini memberikan fitur pada konsumen berupa:
