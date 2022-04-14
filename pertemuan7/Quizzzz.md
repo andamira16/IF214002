@@ -12,10 +12,3 @@
 
 ![Model](https://github.com/andamira16/IF214002/blob/main/pertemuan7/Screenshot(17).jpeg?raw=true)
 
-Tabelkaryawan_ tbl(
-   product_id INT NOT NULL AUTO_INCREMENT,
-   product_name VARCHAR(100) NOT NULL,
-   product_manufacturer VARCHAR(40) NOT NULL,
-   submission_date DATE,
-   PRIMARY KEY ( product_id )
-);
