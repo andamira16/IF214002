@@ -79,8 +79,8 @@ JAWABAN:
   
   
   ## 2. Rancang solusi digital dari satu permasalahan yang ada di sekitar Anda.
-  
-  CREATE TABLE `pelanggan` (
+```sql
+CREATE TABLE `pelanggan` (
   `id_pelanggan` int(11) NOT NULL,
   `nama` varchar(25) NOT NULL,
   `useraname` varchar(255) NOT NULL,
