@@ -17,3 +17,4 @@ FROM penduduk p
 INNER JOIN kode_kabupaten
 ON p.kode_kabupaten
 ```
+![MODEL](blob:https://web.whatsapp.com/8f9a4c87-75b5-4c6a-a370-3b9b29bbc031)
