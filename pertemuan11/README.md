@@ -15,7 +15,7 @@ CREATE TABLE 'barang'(
   `foto_barang` VARCHAR(16) NOT NULL
 );
 
-CREATE TABLE 'pelanggan'(
+CREATE TABLE 'admin'(
   `id_admin` INT(11) NOT NULL,
   `nama_admin` VARCHAR(40) NOT NULL,
   `username_admin` VARCHAR(20) NOT NULL,
