@@ -5,22 +5,25 @@
 ## Deskripsi
 Aplikasi ini dibuat untuk memudahkan para konsumen dalam berbelanja sehingga tidak lagi harus berdesakan dan berkerumun. Aplikasi ini memberikan fitur pada konsumen berupa:
 - Customer login
+- Admin Login
 - Shoping cart
 - Search Engine/mesin pencarian produk
-- Fitur jemput atau antar barang(jika antar ada tambahan ongkos kirim)
+- Fitur jemput atau COD
+- Nota
 ## Entitas dan Atribut
 ### Pelanggan
 - ID pelanggan
 - Nama pelanggan
-- Username
+- email pelanggan
 - Password pelanggan
 - Alamat Pelanggan 
 - No.HP
-### Barang
-- ID barang
-- Nama barang 
-- Harga barang
-- Foto Barang
+### Produk
+- ID produk
+- Nama produk 
+- Harga produk
+- Foto produk
+- Deskripsi Produk
 ### Admin (untuk mengelola data)
 - ID Admin
 - Nama admin
@@ -28,9 +31,16 @@ Aplikasi ini dibuat untuk memudahkan para konsumen dalam berbelanja sehingga tid
 - Password admin
 ### Pembelian
 - ID pembelian
+- ID pelanggan
+- ID metode
 - Tanggal pembelian
 - Total pembelian
-### Metode Penyerahan barang
-- COD
-- Jemput
-- Status penyerahan
+- Status pembelian
+### Pembelian produk
+- ID pembelian produk
+- ID pembelian
+- ID Produk
+- Jumlah pembelian
+### Metode Penyerahan produk
+- ID metode
+- Jenis metode
