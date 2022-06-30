@@ -5,22 +5,25 @@
 ## Deskripsi
 Aplikasi ini dibuat untuk memudahkan para konsumen dalam berbelanja sehingga tidak lagi harus berdesakan dan berkerumun. Aplikasi ini memberikan fitur pada konsumen berupa:
 - Customer login
+- Admin Login
 - Shoping cart
 - Search Engine/mesin pencarian produk
-- Fitur jemput atau antar barang(jika antar ada tambahan ongkos kirim)
+- Fitur jemput atau COD
+- Nota
 ## Entitas dan Atribut
 ### Pelanggan
 - ID pelanggan
 - Nama pelanggan
-- Username
+- email pelanggan
 - Password pelanggan
 - Alamat Pelanggan 
 - No.HP
-### Barang
-- ID barang
-- Nama barang 
-- Harga barang
-- Foto Barang
+### Produk
+- ID produk
+- Nama produk 
+- Harga produk
+- Foto produk
+- Deskripsi Produk
 ### Admin (untuk mengelola data)
 - ID Admin
 - Nama admin
@@ -28,111 +31,94 @@ Aplikasi ini dibuat untuk memudahkan para konsumen dalam berbelanja sehingga tid
 - Password admin
 ### Pembelian
 - ID pembelian
+- ID pelanggan
+- ID metode
 - Tanggal pembelian
 - Total pembelian
-### Metode Penyerahan barang
-- COD
-- Jemput
-- Status penyerahan
+- Status pembelian
+### Pembelian produk
+- ID pembelian produk
+- ID pembelian
+- ID Produk
+- Jumlah pembelian
+### Metode Penyerahan produk
+- ID metode
+- Jenis metode
 
 ## DDL
+```
+CREATE TABLE `admin` (
+  `id_admin` int(11) NOT NULL,
+  `username` varchar(100) NOT NULL,
+  `password` varchar(100) NOT NULL,
+  `nama_lengkap` varchar(100) NOT NULL);
 
-```sql
-CREATE TABLE 'pelanggan'(
-  `id_pelanggan` INT(11) NOT NULL,
-  `nama_pelanggan` VARCHAR(40) NOT NULL,
-  `username` VARCHAR(20) NOT NULL,
-  `password_pelanggan` VARCHAR(16) NOT NULL,
-  `alamat_pelanggan` VARCHAR(30) NOT NULL,
-  `no_HP` INT(50) NOT NULL
-);
+INSERT INTO `admin` (`id_admin`, `username`, `password`, `nama_lengkap`) VALUES
+(1, 'rafiandamira', 'andamira46rafi', 'Rafi Andamira'),
+(2, 'rafiandamira', 'andamira46', 'Rafi Andamira');
 
-CREATE TABLE 'barang'(
-  `id_barang` INT(11) NOT NULL,
-  `nama_barang` VARCHAR(40) NOT NULL,
-  `harga_barang` VARCHAR(20) NOT NULL,
-  `foto_barang` VARCHAR(16) NOT NULL
-);
+CREATE TABLE `metode` (
+  `id_metode` int(11) NOT NULL,
+  `nama_metode` varchar(10) NOT NULL);
 
-CREATE TABLE 'admin'(
-  `id_admin` INT(11) NOT NULL,
-  `nama_admin` VARCHAR(40) NOT NULL,
-  `username_admin` VARCHAR(20) NOT NULL,
-  `password_admin` VARCHAR(16) NOT NULL
-);
+INSERT INTO `metode` (`id_metode`, `nama_metode`) VALUES
+(1, 'COD'),
+(2, 'TAKE AWAY');
 
-CREATE TABLE 'pembelian'(
-  `id_pembelian` INT(11) NOT NULL,
-  `id_pelanggan` INT(11) NOT NULL,
-  `id_barang` INT(11) NOT NULL,
-  `tanggal_pembelian` 
-  `jumlah` INT(11) NOT NULL,
-  `harga_barang` INT(11) NOT NULL,
-  `total_pembelian` INT(11) NOT NULL
-);
+CREATE TABLE `pelanggan` (
+  `id_pelanggan` int(11) NOT NULL,
+  `email_pelanggan` varchar(100) NOT NULL,
+  `password_pelanggan` varchar(50) NOT NULL,
+  `nama_pelanggan` varchar(100) NOT NULL,
+  `telepon_pelanggan` varchar(25) NOT NULL,
+  `alamat_rumah` varchar(300) NOT NULL);
 
-CREATE TABLE `metode_penyerahan`(
-  `id_penyerahan` INT(11) NOT NULL,
-  `metode` 
-  `status`
-);
+CREATE TABLE `pembelian` (
+  `id_pembelian` int(11) NOT NULL,
+  `id_pelanggan` int(11) NOT NULL,
+  `tanggal_pembelian` date NOT NULL,
+  `total_pembelian` int(11) NOT NULL,
+  `id_metode` int(11) NOT NULL,
+  `status_pembelian` varchar(100) NOT NULL DEFAULT 'pending');
 
-
-ALTER TABLE `pelanggan`
-  ADD PRIMARY KEY (`id_pelanggan`),
-
-
-ALTER TABLE `barang`
-  ADD PRIMARY KEY (`id_barang`),
-
+CREATE TABLE `pembelian_produk` (
+  `id_pembelian_produk` int(11) NOT NULL,
+  `id_pembelian` int(11) NOT NULL,
+  `id_produk` int(11) NOT NULL,
+  `jumlah_pembelian` int(11) NOT NULL);
+  
+CREATE TABLE `produk` (
+  `id_produk` int(11) NOT NULL,
+  `nama_produk` varchar(100) NOT NULL,
+  `harga_produk` int(11) NOT NULL,
+  `foto_produk` varchar(100) NOT NULL,
+  `deskripsi_produk` text NOT NULL);
 
 ALTER TABLE `admin`
-  ADD PRIMARY KEY (`id_admin`),
+  ADD PRIMARY KEY (`id_admin`);
 
+ALTER TABLE `metode`
+  ADD PRIMARY KEY (`id_metode`);
+
+ALTER TABLE `pelanggan`
+  ADD PRIMARY KEY (`id_pelanggan`);
 
 ALTER TABLE `pembelian`
-  ADD PRIMARY KEY (`id_pembelian`),
+  ADD PRIMARY KEY (`id_pembelian`);
 
+ALTER TABLE `pembelian_produk`
+  ADD PRIMARY KEY (`id_pembelian_produk`);
 
-ALTER TABLE `metode_penyerahan`
-  ADD PRIMARY KEY (`id_penyerahan`),
+ALTER TABLE `produk`
+  ADD PRIMARY KEY (`id_produk`);
+  
+ ## DML
+INSERT INTO `admin` (`id_admin`, `username`, `password`, `nama_lengkap`) VALUES
+(1, 'rafiandamira', 'andamira46rafi', 'Rafi Andamira'),
+(2, 'rafiandamira', 'andamira46', 'Rafi Andamira');
 
-
- ```
- 
-## DML
-
-``` sql
-
-
-INSERT INTO `pelanggan` (`id_pelanggan`,`nama_pelanggan`,`username`,`password_pelanggan`,`alamat_pelanggan`,`no_HP`) VALUES
-(1, 'Rafi Andamira','rafiandamira'.'alahsiahboy','ujungberung','085793851606');
-
-
-INSERT INTO `barang` (`id_barang`,`nama_barang`,`harga_barang`,`foto_barang`) VALUES
-(1,'rokok','20.000','URL');
-
-INSERT INTO `admin` (`id_admin`,`nama_admin`,`username_admin`,`password_admin`) VALUES
-(1, 'Rafi Andamira','andamira','adminnihboss');
-
-INSERT INTO `pembelian` (`id_pembelian`,`id_pelanggan`,`id_barang`,`tanggal_pembelian` `jumlah`,`harga_barang`,`total_pembelian`) VALUES
-(1,1,1,'30-06-2022',3,20000,60000);
-
-INSERT INTO `metode_penyerahan` (`id_penyerahan`,`metode`,`status`) VALUES
-(1,'COD','Pending');
-
-```
+INSERT INTO `metode` (`id_metode`, `nama_metode`) VALUES
+(1, 'COD'),
+(2, 'TAKE AWAY');
 
 ## DQL
-
-``` sql
-
-/* menampilkan data pada tabel pembelian*/
-
-SELECT * FROM `pembelian`;
-
-/* menampilkan total pembelanjaan yang ada pada seluruh sistem database */
-
-SELECT COUNT(*) AS total_pembelian FROM `pembelian`;
-
-```
