@@ -111,8 +111,9 @@ ALTER TABLE `pembelian_produk`
 
 ALTER TABLE `produk`
   ADD PRIMARY KEY (`id_produk`);
-  
+ ```
  ## DML
+ ```
 INSERT INTO `admin` (`id_admin`, `username`, `password`, `nama_lengkap`) VALUES
 (1, 'rafiandamira', 'andamira46rafi', 'Rafi Andamira'),
 (2, 'rafiandamira', 'andamira46', 'Rafi Andamira');
@@ -120,5 +121,5 @@ INSERT INTO `admin` (`id_admin`, `username`, `password`, `nama_lengkap`) VALUES
 INSERT INTO `metode` (`id_metode`, `nama_metode`) VALUES
 (1, 'COD'),
 (2, 'TAKE AWAY');
-
+```
 ## DQL
